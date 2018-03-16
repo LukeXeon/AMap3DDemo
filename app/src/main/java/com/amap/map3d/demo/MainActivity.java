@@ -122,8 +122,7 @@ public final class MainActivity extends ListActivity {
 //		            创建地图
 			new DemoDetails(R.string.map_create, R.string.blank, null),
 //			显示地图
-			new DemoDetails(R.string.basic_map, R.string.basic_description,
-					BasicMapActivity.class),
+			new DemoDetails(R.string.basic_map, R.string.basic_description,BasicMapActivity.class),
 //			6种实现地图方式
 			new DemoDetails(R.string.basic_map_6, R.string.basic_description_temp,
 					MapImpMethodActivity.class),

@@ -23,18 +23,13 @@ android {
         multiDexEnabled true
     }
 
+
     signingConfigs {
         release {
-            storeFile file("c://my//key//qisu.jks")//keystore的路径
-            storePassword "q1758204693"
-            keyAlias "qisu"
-            keyPassword "q1758204693"
-        }
-        debug {
-            storeFile file("c://my//key//qisu.jks")//keystore的路径
-            storePassword "q1758204693"
-            keyAlias "qisu"
-            keyPassword "q1758204693"
+            keyAlias 'qisu'
+            keyPassword 'q1758204693'
+            storeFile file('./qisu.jks')
+            storePassword 'q1758204693'
         }
     }
 
@@ -49,6 +44,8 @@ android {
             signingConfig signingConfigs.release
         }
     }
+
+
     lintOptions {
         checkReleaseBuilds false
         // Or, if you prefer, you can continue to check for errors in release builds,
@@ -60,18 +57,13 @@ android {
         main {
             jniLibs.srcDirs = ['libs']
         }
-
-        // Move the tests to tests/java, tests/res, etc...
-        instrumentTest.setRoot('tests')
-
-        // Move the build types to build-types/<type>
-        // For instance, build-types/debug/java, build-types/debug/AndroidManifest.xml, ...
-        // This moves them out of them default location under src/<type>/... which would
-        // conflict with src/ being used by the main source set.
-        // Adding new build types or product flavors should be accompanied
-        // by a similar customization.
-        debug.setRoot('build-types/debug')
-        release.setRoot('build-types/release')
+    }
+    dexOptions {
+        incremental true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
